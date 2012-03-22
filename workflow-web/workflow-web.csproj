@@ -136,6 +136,10 @@
       <Project>{E101C302-D7DD-4FE5-9060-624CB5430AB9}</Project>
       <Name>ControlsLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PersistenceLib\PersistenceLib.csproj">
+      <Project>{DCF8C7A4-865E-44EE-BAFD-77E71FCD48AF}</Project>
+      <Name>PersistenceLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProgramLib\ProgramLib.csproj">
       <Project>{75634B28-7879-4488-AB2C-C554D2FB2EEE}</Project>
       <Name>ProgramLib</Name>

@@ -7,16 +7,21 @@ using PersistenceLib;
 using ProgramLib;
 using System.Data.Odbc;
 using System.Runtime.Remoting;
+using System.Configuration;
 
 namespace PersistenceMgrWithoutDataSet
 {
     public class PersistenceMgrWithoutDataSet : IPersistenceMgr
     {
         private OdbcConnection con;
-        private String stdPath = @"..\..\..\";
+        private String stdPath = null;
 
         public PersistenceMgrWithoutDataSet()
         {
+            AppSettingsReader config = new AppSettingsReader();
+            stdPath = (String)config.GetValue("HomePath", typeof(String));
+
+
             String connector = "Driver={Oracle in XE};dbq=127.0.0.1:1521/XE;Uid=system;Pwd=oracle;";
             Console.WriteLine("[Database] " + connector);
             con = new OdbcConnection(connector);
