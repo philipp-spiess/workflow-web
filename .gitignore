@@ -1,5 +1,6 @@
 [Oo]bj
 [Bb]in
+*.config
 *.user
 *.suo
 *.[Cc]ache
