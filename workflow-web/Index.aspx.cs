@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using ProgramLib;
 using ControlsLib;
 
+
 namespace workflow_web
 {
     public partial class _Default : System.Web.UI.Page
@@ -19,20 +20,12 @@ namespace workflow_web
 
         protected void Start_Click(object sender, EventArgs e)
         {
-           /* ListItem p = (ListItem)ProgrammListe.SelectedItem;
-            if (p != null)
-            {
-                StartCtrl.Start(p);
-            }*/
+
         }
 
         protected void Weiterfuehren_Click(object sender, EventArgs e)
         {
-            /*ArbeitsAuftrag aa = (ListItem)ArbeitsauftraegeListe.SelectedItem;
-            if (aa != null)
-            {
-                StartCtrl.Weiterfuehren(aa);
-            }*/
+
         }
    
 

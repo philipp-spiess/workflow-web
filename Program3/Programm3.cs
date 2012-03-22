@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using ProgramLib;
 using System.Diagnostics;
-using System.Windows.Forms;
 using ControlsLib;
 
 namespace Program3
@@ -19,10 +18,10 @@ namespace Program3
 
         private void OpenGUI()
         {
-            GUI gui = new GUI();
+            /*GUI gui = new GUI();
             gui.Uebergabedaten = this.uebergabedaten;
             gui.Programm3 = this;
-            gui.Show();
+            gui.Show();*/
         }
 
         public void Save(Uebergabedaten u)

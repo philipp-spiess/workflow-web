@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ProgramLib;
-using System.Windows.Forms;
 using PersistenceLib;
 
 
@@ -31,13 +30,13 @@ namespace ControlsLib
         {
             if (u.Typ == null)
             {
-                MessageBox.Show("Das Programm endet hier, das es keinem Typ angehört und somit keine weiteren Programme hat. Die letzten bekannten Daten: " + u.GetDaten<String>());
+                //MessageBox.Show("Das Programm endet hier, das es keinem Typ angehört und somit keine weiteren Programme hat. Die letzten bekannten Daten: " + u.GetDaten<String>());
             }
             else
             {
-                SelectProgram gui = new SelectProgram();
-                gui.u = u;
-                gui.Show();
+                //SelectProgram gui = new SelectProgram();
+                //gui.u = u;
+                //gui.Show();
             }
         }
 
