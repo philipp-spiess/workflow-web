@@ -2,21 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using PersistenceLib;
-
 using ProgramLib;
 using System.Data.Odbc;
-using System.Runtime.Remoting;
 using System.Configuration;
+using System.Runtime.Remoting;
 
-namespace PersistenceMgrWithoutDataSet
+namespace PersistenceLib
 {
-    public class PersistenceMgrWithoutDataSet : IPersistenceMgr
+    public class PersistenceMgr
     {
         private OdbcConnection con;
         private String stdPath = null;
 
-        public PersistenceMgrWithoutDataSet()
+        public PersistenceMgr()
         {
             AppSettingsReader config = new AppSettingsReader();
             stdPath = (String)config.GetValue("HomePath", typeof(String));

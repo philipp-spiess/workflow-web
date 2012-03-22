@@ -10,7 +10,7 @@ namespace ControlsLib
 {
     public class StartCtrl
     {
-        private static IPersistenceMgr Persistence = PersistenceCtrl.Instance;
+        private static PersistenceMgr Persistence = PersistenceCtrl.Instance;
 
         public static void Start(Program p)
         {
