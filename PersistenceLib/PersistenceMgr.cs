@@ -17,10 +17,7 @@ namespace PersistenceLib
         public PersistenceMgr()
         {
             AppSettingsReader config = new AppSettingsReader();
-            stdPath = (String)config.GetValue("HomePath", typeof(String));
             String connector = (String)config.GetValue("Connector", typeof(String));
-
-            Console.WriteLine("[Database] " + connector);
             con = new OdbcConnection(connector);
             con.Open();
         }
@@ -29,7 +26,7 @@ namespace PersistenceLib
         {
             List<Program> programme = new List<Program>();
 
-            String query = @"select pname, path, type, i_typ_name, o_typ_name from programm where i_typ_name is null";
+            String query = @"select pname, path, i_typ_name, o_typ_name from web_programm where i_typ_name is null";
 
             OdbcCommand command = new OdbcCommand(query, con);
             OdbcDataReader reader = command.ExecuteReader();
@@ -62,10 +59,10 @@ namespace PersistenceLib
         {
             List<ArbeitsAuftrag> arbeitsauftraege = new List<ArbeitsAuftrag>();
 
-            String query = "select programm.pname, programm.path, programm.type, programm.i_typ_name, "
-                         + "programm.i_typ_name, daten.did, daten.typ_tname, daten.data from AA "
-                         + "join programm on (AA.programm_pname = programm.pname) "
-                         + "join daten on (daten.did = AA.daten_did);";
+            String query = "select programm.pname, programm.path, programm.i_typ_name, "
+                         + "programm.i_typ_name, daten.did, daten.typ_tname, daten.data from web_AA "
+                         + "join web_programm on (AA.programm_pname = programm.pname) "
+                         + "join web_daten on (daten.did = AA.daten_did);";
 
             OdbcCommand command = new OdbcCommand(query, con);
             OdbcDataReader reader = command.ExecuteReader();
@@ -114,7 +111,7 @@ namespace PersistenceLib
 
             OdbcCommand c;
 
-            c = new OdbcCommand("insert into daten (did, typ_tname, data) values (?, ?, ?)", con);
+            c = new OdbcCommand("insert into web_daten (did, typ_tname, data) values (?, ?, ?)", con);
 
             c.Parameters.Add("did", OdbcType.Int);
             c.Parameters.Add("typ_tname", OdbcType.VarChar);
@@ -126,7 +123,7 @@ namespace PersistenceLib
 
             c.ExecuteNonQuery();
 
-            c = new OdbcCommand("insert into AA (programm_pname, daten_did) values (?, ?)", con);
+            c = new OdbcCommand("insert into web_AA (programm_pname, daten_did) values (?, ?)", con);
 
             c.Parameters.Add("programm_pname", OdbcType.VarChar);
             c.Parameters.Add("daten_did", OdbcType.Int);
@@ -142,14 +139,14 @@ namespace PersistenceLib
         {
             OdbcCommand c;
 
-            c = new OdbcCommand("delete from AA where daten_did = ?", con);
+            c = new OdbcCommand("delete from web_AA where daten_did = ?", con);
 
             c.Parameters.Add("daten_did", OdbcType.Int, 4, "daten_did");
             c.Parameters["daten_did"].Value = aa.Uebergabedaten.ID;
 
             c.ExecuteNonQuery();
 
-            c = new OdbcCommand("delete from daten where did = ?", con);
+            c = new OdbcCommand("delete from web_daten where did = ?", con);
 
             c.Parameters.Add("did", OdbcType.Int, 4, "did");
             c.Parameters["did"].Value = aa.Uebergabedaten.ID;
@@ -162,7 +159,7 @@ namespace PersistenceLib
         {
             List<Program> programme = new List<Program>();
 
-            String query = @"select pname, path, type, i_typ_name, o_typ_name from programm where i_typ_name = ?";
+            String query = @"select pname, path, i_typ_name, o_typ_name from web_programm where i_typ_name = ?";
 
             OdbcCommand command = new OdbcCommand(query, con);
             command.Parameters.Add("i_typ_name", OdbcType.VarChar, 50, "i_typ_name");
