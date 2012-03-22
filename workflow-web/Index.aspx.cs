@@ -42,8 +42,7 @@ namespace workflow_web
 
             foreach (Program p in programs)
             {  
-                if(p != null)
-                    this.ProgrammListe.Items.Add(new ListItem(p.ToString(),p.Name));
+                this.ProgrammListe.Items.Add(new ListItem(p.ToString(),p.Name));
             }
         }
 
