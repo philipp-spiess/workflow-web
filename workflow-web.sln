@@ -7,10 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlsLib", "ControlsLib\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistenceLib", "PersistenceLib\PersistenceLib.csproj", "{DCF8C7A4-865E-44EE-BAFD-77E71FCD48AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistenceMgrWithDataSet", "PersistenceMgrWithDataSet\PersistenceMgrWithDataSet.csproj", "{E88EE025-0C86-4272-9BC9-DD5F952D13B9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersistenceMgrWithoutDataSet", "PersistenceMgrWithoutDataSet\PersistenceMgrWithoutDataSet.csproj", "{2788A6EA-6CAD-4523-9325-ABB8A89E8981}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program1", "Program1\Program1.csproj", "{A67966AE-66D9-4400-8A4C-D7D1B0681BCE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program2", "Program2\Program2.csproj", "{C8FF4E15-AB25-4210-957A-1BCCE5E3E2FF}"
@@ -37,14 +33,6 @@ Global
 		{DCF8C7A4-865E-44EE-BAFD-77E71FCD48AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCF8C7A4-865E-44EE-BAFD-77E71FCD48AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCF8C7A4-865E-44EE-BAFD-77E71FCD48AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E88EE025-0C86-4272-9BC9-DD5F952D13B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E88EE025-0C86-4272-9BC9-DD5F952D13B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E88EE025-0C86-4272-9BC9-DD5F952D13B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E88EE025-0C86-4272-9BC9-DD5F952D13B9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2788A6EA-6CAD-4523-9325-ABB8A89E8981}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2788A6EA-6CAD-4523-9325-ABB8A89E8981}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2788A6EA-6CAD-4523-9325-ABB8A89E8981}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2788A6EA-6CAD-4523-9325-ABB8A89E8981}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A67966AE-66D9-4400-8A4C-D7D1B0681BCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A67966AE-66D9-4400-8A4C-D7D1B0681BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A67966AE-66D9-4400-8A4C-D7D1B0681BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
