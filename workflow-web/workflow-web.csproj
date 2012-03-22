@@ -53,10 +53,9 @@
     <Content Include="Styles\Site.css" />
     <Content Include="Index.aspx" />
     <Content Include="Global.asax" />
- <Content Include="Web.Debug.config">
+    <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-   
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Index.aspx.cs">
