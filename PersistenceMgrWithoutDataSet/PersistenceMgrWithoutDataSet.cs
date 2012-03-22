@@ -20,9 +20,8 @@ namespace PersistenceMgrWithoutDataSet
         {
             AppSettingsReader config = new AppSettingsReader();
             stdPath = (String)config.GetValue("HomePath", typeof(String));
+            String connector = (String)config.GetValue("Connector", typeof(String));
 
-
-            String connector = "Driver={Oracle in XE};dbq=127.0.0.1:1521/XE;Uid=nicolas;Pwd=240992;";
             Console.WriteLine("[Database] " + connector);
             con = new OdbcConnection(connector);
             con.Open();

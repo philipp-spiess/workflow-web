@@ -6,13 +6,24 @@ using PersistenceLib;
 using ProgramLib;
 using System.Runtime.Remoting;
 using System.Data;
+using System.Configuration;
 
 namespace PersistenceMgrWithDataSet
 {
     public class PersistenceMgrWithDataSet : IPersistenceMgr
     {
-        private DBHelper DB = new DBHelper();
-        private String stdPath = @"..\..\..\";
+        private DBHelper DB;
+        private String stdPath;
+
+        public PersistenceMgrWithDataSet()
+        {
+            AppSettingsReader config = new AppSettingsReader();
+            stdPath = (String)config.GetValue("HomePath", typeof(String));
+            String connector = (String)config.GetValue("Connector", typeof(String));
+
+            
+            DB = new DBHelper(connector);
+        }
 
         public List<Typ> GetTyps()
         {
