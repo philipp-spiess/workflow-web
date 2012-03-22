@@ -1,5 +1,6 @@
 [Oo]bj
 [Bb]in
+*.config
 *.user
 *.suo
 *.[Cc]ache
@@ -11,4 +12,3 @@
 _ReSharper.*
 *.resharper
 Ankh.NoLoad
-Web.config
