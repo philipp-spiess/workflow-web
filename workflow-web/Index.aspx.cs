@@ -36,7 +36,7 @@ namespace workflow_web
             this.ProgrammListe.Items.Clear();
 
             List<Program> programs = PersistenceCtrl.Instance.GetProgramme();
-            List<ArbeitsAuftrag> arbeitsauftraege = PersistenceCtrl.Instance.GetAA();
+            List<ArbeitsAuftrag> arbeitsauftraege = PersistenceCtrl.Instance.GetArbeitsAuftraege();
 
             foreach(ArbeitsAuftrag aa in arbeitsauftraege)
             {
