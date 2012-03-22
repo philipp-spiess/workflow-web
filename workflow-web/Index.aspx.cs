@@ -20,31 +20,41 @@ namespace workflow_web
 
         protected void Start_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void Weiterfuehren_Click(object sender, EventArgs e)
         {
 
         }
+
+        protected void Aktualisieren_Click(object sender, EventArgs e)
+        {
+            this.RefreshList();
+        }
    
 
         private void RefreshList()
         {
-
+          
+            
             List<Program> programs = PersistenceCtrl.Instance.GetProgramme();
             List<ArbeitsAuftrag> arbeitsauftraege = PersistenceCtrl.Instance.GetArbeitsAuftraege();
 
+            ArbeitsauftraegeListe.Items.Clear();
             foreach(ArbeitsAuftrag aa in arbeitsauftraege)
             {
                 this.ArbeitsauftraegeListe.Items.Add(new ListItem(aa.ToString(),aa.Uebergabedaten.ID.ToString()));
             }
 
+            ProgrammListe.Items.Clear();
             foreach (Program p in programs)
             {  
                 this.ProgrammListe.Items.Add(new ListItem(p.ToString(),p.Name));
             }
         }
+
+      
 
 
       
