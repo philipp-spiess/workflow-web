@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>d51909ea-42af-4bb5-b6bd-bf26735bfffa</ProjectGuid>
+    <ProjectGuid>{A67966AE-66D9-4400-8A4C-D7D1B0681BCE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Program1</RootNamespace>
@@ -40,8 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Programm1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ControlsLib\ControlsLib.csproj">
+      <Project>{E101C302-D7DD-4FE5-9060-624CB5430AB9}</Project>
+      <Name>ControlsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProgramLib\ProgramLib.csproj">
+      <Project>{75634B28-7879-4488-AB2C-C554D2FB2EEE}</Project>
+      <Name>ProgramLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

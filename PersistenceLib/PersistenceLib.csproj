@@ -44,6 +44,12 @@
     <Compile Include="IPersistenceMgr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProgramLib\ProgramLib.csproj">
+      <Project>{75634B28-7879-4488-AB2C-C554D2FB2EEE}</Project>
+      <Name>ProgramLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

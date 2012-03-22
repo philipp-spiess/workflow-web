@@ -131,6 +131,16 @@
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ControlsLib\ControlsLib.csproj">
+      <Project>{E101C302-D7DD-4FE5-9060-624CB5430AB9}</Project>
+      <Name>ControlsLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProgramLib\ProgramLib.csproj">
+      <Project>{75634B28-7879-4488-AB2C-C554D2FB2EEE}</Project>
+      <Name>ProgramLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
