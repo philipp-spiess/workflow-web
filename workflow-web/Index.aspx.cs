@@ -17,20 +17,20 @@ namespace workflow_web
 
         protected void Start_Click(object sender, EventArgs e)
         {
-            Program p = (Programme)ProgrammListe.SelectedItem;
+           /* Program p = (Programme)ProgrammListe.SelectedItem;
             if (p != null)
             {
                 StartCtrl.Start(p);
-            }
+            }*/
         }
 
         protected void Weiterfuehren_Click(object sender, EventArgs e)
         {
-            ArbeitsAuftrag aa = (ArbeitsAuftrag)ArbeitsauftraegeListe.SelectedItem;
+            /*ArbeitsAuftrag aa = (ArbeitsAuftrag)ArbeitsauftraegeListe.SelectedItem;
             if (aa != null)
             {
                 StartCtrl.Weiterfuehren(aa);
-            }
+            }*/
         }
 
    
