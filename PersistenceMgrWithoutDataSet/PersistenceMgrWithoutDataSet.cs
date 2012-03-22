@@ -22,7 +22,7 @@ namespace PersistenceMgrWithoutDataSet
             stdPath = (String)config.GetValue("HomePath", typeof(String));
 
 
-            String connector = "Driver={Oracle in XE};dbq=127.0.0.1:1521/XE;Uid=system;Pwd=oracle;";
+            String connector = "Driver={Oracle in XE};dbq=127.0.0.1:1521/XE;Uid=nicolas;Pwd=240992;";
             Console.WriteLine("[Database] " + connector);
             con = new OdbcConnection(connector);
             con.Open();
