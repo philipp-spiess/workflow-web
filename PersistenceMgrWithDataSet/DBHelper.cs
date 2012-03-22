@@ -18,9 +18,8 @@ namespace PersistenceMgrWithDataSet
 
         public DataSet Set { get; set; }
 
-        public DBHelper()
+        public DBHelper(String connector)
         {
-            String connector = "Driver={Oracle in XE};dbq=127.0.0.1:1521/XE;Uid=system;Pwd=oracle;";
             Console.WriteLine("[Database] " + connector);
             con = new OdbcConnection(connector);
             con.Open();
