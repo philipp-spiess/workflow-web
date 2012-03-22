@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AktualisierenCtrl.cs" />
     <Compile Include="PersistenceCtrl.cs" />
     <Compile Include="StartCtrl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
