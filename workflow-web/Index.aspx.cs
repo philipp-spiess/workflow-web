@@ -32,9 +32,6 @@ namespace workflow_web
         private void RefreshList()
         {
 
-            this.ProgrammListe.Items.Clear();
-            this.ProgrammListe.Items.Clear();
-
             List<Program> programs = PersistenceCtrl.Instance.GetProgramme();
             List<ArbeitsAuftrag> arbeitsauftraege = PersistenceCtrl.Instance.GetArbeitsAuftraege();
 
@@ -44,7 +41,7 @@ namespace workflow_web
             }
 
             foreach (Program p in programs)
-            {
+            {  
                 this.ProgrammListe.Items.Add(new ListItem(p.ToString(),p.Name));
             }
         }
