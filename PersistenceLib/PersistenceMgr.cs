@@ -12,7 +12,6 @@ namespace PersistenceLib
     public class PersistenceMgr
     {
         private OdbcConnection con;
-        private String stdPath = null;
 
         public PersistenceMgr()
         {
@@ -26,25 +25,20 @@ namespace PersistenceLib
         {
             List<Program> programme = new List<Program>();
 
-            String query = @"select pname, path, i_typ_name, o_typ_name from web_programm where i_typ_name is null";
+            String query = @"select pname, path, 'x' as x, i_typ_name, o_typ_name from web_programm where i_typ_name is null";
 
             OdbcCommand command = new OdbcCommand(query, con);
             OdbcDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
             {
-
-                ObjectHandle h = Activator.CreateInstanceFrom(
-                    stdPath + reader.GetString(1),
-                    reader.GetString(2)
-                );
-
                 Typ out_typ = null;
                 if (!reader.IsDBNull(4))
                     out_typ = new Typ(reader.GetString(4));
 
-                Program p = (Program)h.Unwrap();
+                Program p = new Program();
                 p.Name = reader.GetString(0);
+                p.Path = reader.GetString(1);
                 p.OutputTyp = out_typ;
                 p.InputTyp = null;
 
@@ -59,21 +53,16 @@ namespace PersistenceLib
         {
             List<ArbeitsAuftrag> arbeitsauftraege = new List<ArbeitsAuftrag>();
 
-            String query = "select programm.pname, programm.path, programm.i_typ_name, "
-                         + "programm.i_typ_name, daten.did, daten.typ_tname, daten.data from web_AA "
-                         + "join web_programm on (AA.programm_pname = programm.pname) "
-                         + "join web_daten on (daten.did = AA.daten_did);";
+            String query = "select web_programm.pname, web_programm.path, 'x' as x, web_programm.i_typ_name, "
+                         + "web_programm.i_typ_name, web_daten.did, web_daten.typ_tname, web_daten.data from web_AA "
+                         + "join web_programm on (web_AA.programm_pname = web_programm.pname) "
+                         + "join web_daten on (web_daten.did = web_AA.daten_did);";
 
             OdbcCommand command = new OdbcCommand(query, con);
             OdbcDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
             {
-
-                ObjectHandle h = Activator.CreateInstanceFrom(
-                    stdPath + reader.GetString(1),
-                    reader.GetString(2)
-                );
 
                 Typ in_typ = null;
                 if (!reader.IsDBNull(3))
@@ -83,8 +72,9 @@ namespace PersistenceLib
                 if (!reader.IsDBNull(4))
                     out_typ = new Typ(reader.GetString(4));
 
-                Program p = (Program)h.Unwrap();
+                Program p = new Program();
                 p.Name = reader.GetString(0);
+                p.Path = reader.GetString(1);
                 p.OutputTyp = out_typ;
                 p.InputTyp = in_typ;
 
@@ -159,7 +149,7 @@ namespace PersistenceLib
         {
             List<Program> programme = new List<Program>();
 
-            String query = @"select pname, path, i_typ_name, o_typ_name from web_programm where i_typ_name = ?";
+            String query = @"select pname, path, 'x' as x, i_typ_name, o_typ_name from web_programm where i_typ_name = ?";
 
             OdbcCommand command = new OdbcCommand(query, con);
             command.Parameters.Add("i_typ_name", OdbcType.VarChar, 50, "i_typ_name");
@@ -169,11 +159,9 @@ namespace PersistenceLib
 
             while (reader.Read())
             {
-
-                ObjectHandle h = Activator.CreateInstanceFrom(
-                    stdPath + reader.GetString(1),
-                    reader.GetString(2)
-                );
+                Program p = new Program();
+                p.Name = reader.GetString(1);
+                p.Path = reader.GetString(2);
 
                 Typ out_typ = null;
                 if (!reader.IsDBNull(4))
@@ -183,13 +171,10 @@ namespace PersistenceLib
                 if (!reader.IsDBNull(3))
                     in_typ = new Typ(reader.GetString(3));
 
-                Program p = (Program)h.Unwrap();
-                p.Name = reader.GetString(0);
                 p.OutputTyp = out_typ;
                 p.InputTyp = in_typ;
 
                 programme.Add(p);
-
             }
 
             return programme;

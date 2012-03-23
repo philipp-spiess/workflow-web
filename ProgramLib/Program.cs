@@ -13,6 +13,7 @@ namespace ProgramLib
         public Uebergabedaten uebergabedaten { get; set; }
 
         public String Name { get; set; }
+        public String Path { get; set; }
         public Typ InputTyp { get; set; }
         public Typ OutputTyp { get; set; }
 
