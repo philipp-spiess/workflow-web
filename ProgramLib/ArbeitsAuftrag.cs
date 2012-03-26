@@ -9,14 +9,6 @@ namespace ProgramLib
     {
         public Program program { get; set; }
         public Uebergabedaten Uebergabedaten { get; set; }
-        public int ID = -1;
-
-        public ArbeitsAuftrag(int id, Program p, Uebergabedaten u)
-        {
-            this.ID = id;
-            this.program = p;
-            this.Uebergabedaten = u;
-        }
 
         public ArbeitsAuftrag(Program p, Uebergabedaten u)
         {
@@ -24,9 +16,11 @@ namespace ProgramLib
             this.Uebergabedaten = u;
         }
 
+        public ArbeitsAuftrag() { }
+
         public override string ToString()
         {
-            return "AA #" + ID + " mit " + program.ToString();
+            return "AA #" + Uebergabedaten.ID + " mit " + program.ToString();
         }
     }
 }

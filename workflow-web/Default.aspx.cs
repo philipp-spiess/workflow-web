@@ -19,27 +19,26 @@ namespace workflow_web
             {
                 this.RefreshList();
             }
+
+            if (Request.QueryString["saved"] != null && Request.QueryString["saved"].Equals("true"))
+            {
+                Label1.Text = "Arbeitsauftrag gespeichert.";
+            }
         }
 
         protected void Start_Click(object sender, EventArgs e)
         {
             if (ProgrammListe.SelectedItem == null)
             {
-
                 Label1.Text = "No programm selected";
             }
             else
             {
                 StartCtrl.Start(ProgrammListe.SelectedItem.Value);
-                //Label1.Text = "Look: " + ProgrammListe.SelectedItem.Value;
             }
         }
 
-        protected void Weiterfuehren_Click(object sender, EventArgs e)
-        {
-
-        }
-
+    
         protected void Aktualisieren_Click(object sender, EventArgs e)
         {
             this.RefreshList();
@@ -47,9 +46,7 @@ namespace workflow_web
    
 
         private void RefreshList()
-        {
-          
-            
+        {   
             List<Program> programs = PersistenceCtrl.Instance.GetProgramme();
             List<ArbeitsAuftrag> arbeitsauftraege = PersistenceCtrl.Instance.GetArbeitsAuftraege();
 
@@ -62,13 +59,23 @@ namespace workflow_web
             ProgrammListe.Items.Clear();
             foreach (Program p in programs)
             {  
-                this.ProgrammListe.Items.Add(new ListItem(p.ToString(),p.Name));
+                this.ProgrammListe.Items.Add(new ListItem(p.Name, p.Name));
             }
         }
 
-      
+        protected void AA_Click(object sender, EventArgs e)
+        {
+            Label1.Text = "lom";
 
-
-      
+            if (ArbeitsauftraegeListe.SelectedItem == null)
+            {
+                Label1.Text = "No AA selected";
+            }
+            else
+            {
+                Label1.Text = ArbeitsauftraegeListe.SelectedItem.Value;
+                StartCtrl.Weiterfuehren(ArbeitsauftraegeListe.SelectedItem.Value);
+            }
+        }
     }
 }

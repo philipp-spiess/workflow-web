@@ -2,5 +2,5 @@
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h1>Your workflow ends here.</h1>
-    <a href="/">Back to Overview</a>
+    <a href="/workflow-web">Back to Overview</a>
 </asp:Content>

@@ -17,13 +17,6 @@ namespace ProgramLib
         public Typ InputTyp { get; set; }
         public Typ OutputTyp { get; set; }
 
-        public virtual void Start()
-        {
-
-            Debug.WriteLine("le start");
-        }
-
-
         public override string ToString()
         {
             return this.Name;

@@ -23,17 +23,20 @@ namespace PersistenceLib
 
         public Program GetProgrammByName(String pname)
         {
-            List<Program> programme = this.GetProgramme();
+            List<Program> programme = GetAllProgramme();
             Program program = null;
+
+            String lol = "";
             foreach (Program p in programme)
             {
+                lol += " " + p.Name;
                 if (pname.Equals(p.Name))
                     program = p;
             }
 
             if (program == null)
             {
-                throw new Exception("Should not happen. Never.");
+                throw new Exception("No program called '" + pname + "' ... LOL= " + lol);
             }
 
             return program;
@@ -66,6 +69,39 @@ namespace PersistenceLib
 
             return programme;
         }
+
+        public List<Program> GetAllProgramme()
+        {
+            List<Program> programme = new List<Program>();
+
+            String query = @"select pname, path, 'x' as x, i_typ_name, o_typ_name from web_programm";
+
+            OdbcCommand command = new OdbcCommand(query, con);
+            OdbcDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Typ out_typ = null;
+                if (!reader.IsDBNull(4))
+                    out_typ = new Typ(reader.GetString(4));
+
+                Typ input_typ = null;
+                if (!reader.IsDBNull(3))
+                    input_typ = new Typ(reader.GetString(3));
+
+                Program p = new Program();
+                p.Name = reader.GetString(0);
+                p.Path = reader.GetString(1);
+                p.OutputTyp = out_typ;
+                p.InputTyp = input_typ;
+
+                programme.Add(p);
+
+            }
+
+            return programme;
+        }
+
 
         public List<ArbeitsAuftrag> GetArbeitsAuftraege()
         {
@@ -178,7 +214,7 @@ namespace PersistenceLib
             while (reader.Read())
             {
                 Program p = new Program();
-                p.Name = reader.GetString(1);
+                p.Name = reader.GetString(0);
                 p.Path = reader.GetString(2);
 
                 Typ out_typ = null;

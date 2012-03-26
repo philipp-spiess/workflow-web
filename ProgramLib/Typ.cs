@@ -9,6 +9,8 @@ namespace ProgramLib
     {
         public String Name { get; set; }
 
+        public Typ() { }
+
         public Typ(String n)
         {
             Name = n;

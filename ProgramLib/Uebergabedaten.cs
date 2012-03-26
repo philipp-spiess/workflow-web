@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using System.IO;
+using System.Runtime.Serialization;
 
 namespace ProgramLib
 {
@@ -12,6 +13,8 @@ namespace ProgramLib
         public Typ Typ { get; set; }
         public int ID { get; set; }
         public String Daten { get; set; }
+
+        public Uebergabedaten() { }
 
         public Uebergabedaten(int ID, Typ t, String d)
         {

@@ -3,11 +3,12 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h1>Bitte wähle ein Nachfolgeprogramm</h1>
     <center>
-        <asp:ListBox ID="Programme" runat="server"></asp:ListBox>
-    </center>
+        <asp:ListBox ID="Programme" runat="server" Height="356px"  Width="400px"></asp:ListBox>
+    </center> 
     <br />
     <center>
-        <asp:Button ID="Go" runat="server" Text="Programm auswählen" />
+        <asp:Button ID="Go" runat="server" Text="Programm auswählen" 
+            onclick="Go_Click" />
     </center>
     <br />
     <center>
