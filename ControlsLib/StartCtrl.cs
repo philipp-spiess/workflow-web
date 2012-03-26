@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using ProgramLib;
 using PersistenceLib;
+using System.Web;
+using System.Data;
 
 
 namespace ControlsLib
@@ -12,9 +14,11 @@ namespace ControlsLib
     {
         private static PersistenceMgr Persistence = PersistenceCtrl.Instance;
 
-        public static void Start(Program p)
+        public static void Start(String pname)
         {
-            p.Start();
+            Program program = PersistenceCtrl.Instance.GetProgrammByName(pname);
+
+            HttpContext.Current.Response.Redirect(program.Path);
         }
 
         public static void Weiterfuehren(ArbeitsAuftrag aa)
@@ -30,12 +34,13 @@ namespace ControlsLib
         {
             if (u.Typ == null)
             {
-                //MessageBox.Show("Das Programm endet hier, das es keinem Typ angehört und somit keine weiteren Programme hat. Die letzten bekannten Daten: " + u.GetDaten<String>());
+                HttpContext.Current.Response.Redirect("http://localhost/End.aspx");
             }
             else
             {
-                //SelectProgram gui = new SelectProgram();
-                //gui.u = u;
+                HttpContext.Current.Session["Uebergabedaten"] = u;
+                HttpContext.Current.Response.Redirect("http://localhost/Select.aspx");
+                
                 //gui.Show();
             }
         }

@@ -32,9 +32,9 @@ CREATE TABLE "WEB_DATEN"
 
 CREATE SEQUENCE daten_seq;
 
-INSERT INTO "WEB_PROGRAMM" (PNAME, PATH, O_TYP_NAME) VALUES ('P1 - Start', 'Program1.aspx', 'String');
-INSERT INTO "WEB_PROGRAMM" (PNAME, PATH, I_TYP_NAME) VALUES ('P2 - Ende', 'Program2.aspx', 'String');
-INSERT INTO "WEB_PROGRAMM" (PNAME, PATH, I_TYP_NAME, O_TYP_NAME) VALUES ('P3 - StringRev', 'Program3.aspx', 'String', 'String');
+INSERT INTO "WEB_PROGRAMM" (PNAME, PATH, O_TYP_NAME) VALUES ('P1 - Start', 'http://localhost:81/', 'String');
+INSERT INTO "WEB_PROGRAMM" (PNAME, PATH, I_TYP_NAME) VALUES ('P2 - Ende', 'http://localhost:82/', 'String');
+INSERT INTO "WEB_PROGRAMM" (PNAME, PATH, I_TYP_NAME, O_TYP_NAME) VALUES ('P3 - StringRev', 'http://localhost:83/', 'String', 'String');
 
 INSERT INTO "WEB_TYP" (TNAME) VALUES ('String');
 INSERT INTO "WEB_TYP" (TNAME) VALUES ('Float');

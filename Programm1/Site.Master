@@ -1,8 +1,8 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="workflow_web.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Programm1.SiteMaster" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head runat="server">
+<head id="Head1" runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
@@ -12,11 +12,16 @@
      <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="brand" href="/">Workflow Web</a>
+          <a class="brand" href="/">Programm1</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="http://localhost">Back to Workflow Web</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-    <form runat="server">
+    <form id="Form1" runat="server">
     <div class="container page">
         <div class="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>

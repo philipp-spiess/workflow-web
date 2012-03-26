@@ -21,6 +21,24 @@ namespace PersistenceLib
             con.Open();
         }
 
+        public Program GetProgrammByName(String pname)
+        {
+            List<Program> programme = this.GetProgramme();
+            Program program = null;
+            foreach (Program p in programme)
+            {
+                if (pname.Equals(p.Name))
+                    program = p;
+            }
+
+            if (program == null)
+            {
+                throw new Exception("Should not happen. Never.");
+            }
+
+            return program;
+        }
+
         public List<Program> GetProgramme()
         {
             List<Program> programme = new List<Program>();

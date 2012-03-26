@@ -15,12 +15,24 @@ namespace workflow_web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.RefreshList();
+            if (!IsPostBack)
+            {
+                this.RefreshList();
+            }
         }
 
         protected void Start_Click(object sender, EventArgs e)
         {
-           
+            if (ProgrammListe.SelectedItem == null)
+            {
+
+                Label1.Text = "No programm selected";
+            }
+            else
+            {
+                StartCtrl.Start(ProgrammListe.SelectedItem.Value);
+                //Label1.Text = "Look: " + ProgrammListe.SelectedItem.Value;
+            }
         }
 
         protected void Weiterfuehren_Click(object sender, EventArgs e)
